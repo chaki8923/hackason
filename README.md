@@ -125,4 +125,9 @@ module.exports = {
 
 - npx eslint --fix src/**/*.ts*
 
+## バージョンは最新だとなんかうまくいかなかった
+- npm install d3@5.15.0
+
+- npm install @types/d3
+
 -http://localhost:3000/にアクセス
