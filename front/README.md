@@ -1,46 +1,133 @@
-# Getting Started with Create React App
+# 環境構築
+- docker exec -it node sh
+- npx create-react-app . --template typescript --use-npm
+- npx eslint --init
+```
+ESLintのチェックをどこまで行うのですか？
+? How would you like to use ESLint? … 
+To check syntax only
+To check syntax and find problems
+To check syntax, find problems, and enforce code style　<-これを選んでください
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+使っているモジュールは何ですか？
+? What type of modules does your project use? … 
+JavaScript modules (import/export)<-これを選んでください
+CommonJS (require/exports)
+None of these
 
-## Available Scripts
+プロジェクトで使用しているフレームワークはどれですか？
+? Which framework does your project use? … 
+React<-これを選んでください 
+Vue.js
+None of these
 
-In the project directory, you can run:
+プロジェクトはTypeScriptを使用していますか？
+Does your project use TypeScript? · No / Yes <-Yesを選択してください
 
-### `npm start`
+コードはどこで実行されますか？
+ Where does your code run? … (Press <space> to select, <a> to toggle all, <i> to invert selection)
+ ✔ Browser<-これを選んでください
+ ✔ Node
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+設定ファイルをどの形式にしますか？
+What format do you want your config file to be in? … ❯ 
+JavaScript <-これを選んでください
+YAML 
+JSON
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+プロジェクトのスタイルをどのように定義しますか？
+How would you like to define a style for your project? … 
+Use a popular style guide<-これを選んでください
+Answer questions about your style
+Inspect your JavaScript file(s)
+選択した構成には、次の依存関係が必要です。
+eslint-plugin-react の最新バージョンを今すぐ npm でインストールしますか?
+eslint-plugin-react@latest
+? Would you like to install them now with npm? › No / Yes<-Yesを選択してください（npmインストールが始まります）
 
-### `npm test`
+Successfully created .eslintrc.js file in /front
+ESLint was installed locally. We recommend using this local copy instead of your globally-installed copy.
+上記の表示が出ればOK
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+        "jest/globals": true,<-追記
+    },
+    extends: [
+        "plugin:react/recommended",
+        "standard",
+        "plugin:@typescript-eslint/recommended",<-追記
+    ],
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: "module",
+    },
+    plugins: ["react", "@typescript-eslint", "jest"],
+    rules: {
+        "no-use-before-define": "off",<-追記
+        "@typescript-eslint/no-use-before-define": ["error"],<-追記
+    },
+    settings: {
+        react: {
+            version: "detect",<-追記
+        },
+    },
+};
+```
 
-### `npm run build`
+- npm i -D prettier eslint-config-prettier eslint-plugin-prettier pretty-quick
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true,
+        "jest/globals": true,
+    },
+    extends: [
+        "plugin:react/recommended",
+        "standard",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"<-追記
+    ],
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+        ecmaVersion: 12,
+        sourceType: "module",
+    },
+    plugins: ["react", "@typescript-eslint", "jest", "prettier"],<-"prettier"追記
+    rules: {
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "prettier/prettier": "error",<-追記
+    },
+    settings: {
+        react: {
+            version: "detect",
+        },
+    },
+};
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm start
 
-### `npm run eject`
+- npx eslint --fix src/**/*.ts*
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## バージョンは最新だとなんかうまくいかなかった
+- npm install d3@5.15.0
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- npm install @types/d3
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-http://localhost:3000/にアクセス
