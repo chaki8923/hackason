@@ -76,18 +76,29 @@ function D3() {
             // console.log("name::" + pref.name);
             
             return feature.properties.name_ja === pref.name;
-          })?.geometry?.coordinates;
-
+          })?.geometry?.coordinates?.[0]?.[0];
           if (coords) {
+
             
             console.log("coords::" + coords![0]);
-            const position = projection(coords);
+            const position = projection([143.8964949880001, 44.15814850500004]);
+            console.log("position::" + position![0]);
+            console.log("position_0::" + position![0]);
+            console.log("position_1::" + position![1]);
             // const position = coords
             svg.append("text")
               .attr("x", position![0])
               .attr("y", position![1])
               .attr("text-anchor", "middle")
               .text("⭐️");
+
+              svg
+              .append("img")
+              .attr("src", "./public/logo192.png")
+              .attr("width", 40)
+              .attr("height", 40)
+              .attr("x", 40)
+              .attr("y", 40);
           }
         }
       })
