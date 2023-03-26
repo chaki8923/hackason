@@ -5,10 +5,11 @@
       "capital": "札幌市",
       "population": 5320000,
       "area": 83424,
+      "flag": true,
       "cities": [
-        {"name": "札幌市", "population": 1950000},
-        {"name": "函館市", "population": 260000},
-        {"name": "旭川市", "population": 330000}
+        {"name": "仙台市", "population": 1070000},
+        {"name": "石巻市", "population": 400000},
+        {"name": "塩竈市", "population": 42000}
       ]
     },
     {
@@ -16,10 +17,11 @@
       "capital": "青森市",
       "population": 1260000,
       "area": 9645,
+      "flag": true,
       "cities": [
-        {"name": "青森市", "population": 300000},
-        {"name": "弘前市", "population": 183000},
-        {"name": "八戸市", "population": 245000}
+        {"name": "仙台市", "population": 1070000},
+        {"name": "石巻市", "population": 400000},
+        {"name": "塩竈市", "population": 42000}
       ]
     },
     {
@@ -27,10 +29,11 @@
       "capital": "盛岡市",
       "population": 1220000,
       "area": 15275,
+      "flag": false,
       "cities": [
-        {"name": "盛岡市", "population": 296000},
-        {"name": "釜石市", "population": 25300},
-        {"name": "宮古市", "population": 22700}
+        {"name": "仙台市", "population": 1070000},
+        {"name": "石巻市", "population": 400000},
+        {"name": "塩竈市", "population": 42000}
       ]
     },
     {
